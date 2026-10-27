@@ -1,0 +1,71 @@
+### Pruebas de la API (extensión "REST Client" de VS Code: clic en "Send Request")
+@host = http://localhost:3000
+
+### Estado de las conexiones
+GET {{host}}/api/health
+
+############ USUARIOS - SQL Server ############
+
+### Crear usuario
+POST {{host}}/api/users
+Content-Type: application/json
+
+{ "name": "Josua Silva", "email": "josua@example.com" }
+
+### Listar usuarios
+GET {{host}}/api/users
+
+### Obtener usuario por id
+GET {{host}}/api/users/1
+
+### Actualizar usuario
+PUT {{host}}/api/users/1
+Content-Type: application/json
+
+{ "name": "Josua Silva Actualizado", "email": "josua@example.com" }
+
+### Eliminar usuario
+DELETE {{host}}/api/users/1
+
+############ USUARIOS - MongoDB ############
+
+### Crear usuario
+POST {{host}}/api/mongo/users
+Content-Type: application/json
+
+{ "name": "Maria Lopez", "email": "maria@example.com" }
+
+### Listar usuarios
+GET {{host}}/api/mongo/users
+
+### Actualizar usuario (reemplaza <id> por un _id real)
+PUT {{host}}/api/mongo/users/<id>
+Content-Type: application/json
+
+{ "name": "Maria Lopez Actualizada", "email": "maria@example.com" }
+
+### Eliminar usuario
+DELETE {{host}}/api/mongo/users/<id>
+
+############ EVENTOS - MongoDB ############
+
+### Crear evento
+POST {{host}}/api/events
+Content-Type: application/json
+
+{ "userId": "<_id de un usuario de MongoDB>", "action": "UPDATE_USER", "description": "Evento registrado manualmente" }
+
+### Listar eventos
+GET {{host}}/api/events
+
+### Listar eventos de un usuario de MongoDB
+GET {{host}}/api/events?userId=<id>
+
+### Actualizar evento
+PUT {{host}}/api/events/<id>
+Content-Type: application/json
+
+{ "description": "Descripción corregida" }
+
+### Eliminar evento
+DELETE {{host}}/api/events/<id>

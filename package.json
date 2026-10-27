@@ -1,0 +1,24 @@
+{
+  "name": "semana11-backend",
+  "version": "1.0.0",
+  "description": "Semana 11 - Backend Node.js con SQL Server y MongoDB (APIs RESTful)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "seed:mongo": "mongosh --quiet database/seed.mongodb.js"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "sqlserver",
+    "mongodb",
+    "rest"
+  ],
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.3.0",
+    "mongoose": "^9.11.4",
+    "mssql": "^12.7.13"
+  }
+}

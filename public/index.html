@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semana 11 - Gestión de Usuarios</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Gestión de Usuarios</h1>
+    <p>Node.js + Express · SQL Server · MongoDB · APIs RESTful</p>
+    <div class="status">
+      <span id="status-sql" class="badge">SQL Server: ...</span>
+      <span id="status-mongo" class="badge">MongoDB: ...</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Usuario</h2>
+      <form id="user-form">
+        <input type="hidden" id="user-id">
+        <label>Base de datos
+          <select id="db-select">
+            <option value="sql">SQL Server (/api/users)</option>
+            <option value="mongo">MongoDB (/api/mongo/users)</option>
+          </select>
+        </label>
+        <label>Nombre <input type="text" id="name" maxlength="100" required></label>
+        <label>Email <input type="email" id="email" maxlength="100" required></label>
+        <div class="actions">
+          <button type="submit" id="submit-btn">Crear</button>
+          <button type="button" id="cancel-btn" class="secondary" hidden>Cancelar</button>
+        </div>
+        <p id="message" class="message"></p>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Usuarios <small id="db-label">(SQL Server)</small></h2>
+      <table>
+        <thead>
+          <tr><th>Id</th><th>Nombre</th><th>Email</th><th>Acciones</th></tr>
+        </thead>
+        <tbody id="users-body"></tbody>
+      </table>
+    </section>
+
+    <section class="card wide">
+      <h2>Registro de eventos <small>(MongoDB · /api/events)</small></h2>
+      <table>
+        <thead>
+          <tr><th>Fecha</th><th>Acción</th><th>Origen</th><th>Usuario</th><th>Descripción</th><th></th></tr>
+        </thead>
+        <tbody id="events-body"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
